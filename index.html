@@ -20,25 +20,6 @@
         disp.innerHTML = count;
         }
     </script>
-    <script>
-        document.addEventListener('mousemove', function(e) {
-            const pointer = document.querySelector('.pointer');
-            pointer.style.left = e.pageX + 'px';
-            pointer.style.top = e.pageY + 'px';
-        });
-
-        document.addEventListener('mousedown', function() {
-            const pointer = document.querySelector('.pointer');
-            pointer.style.width = '80px'; /* Increase the size */
-            pointer.style.height = '80px';
-        });
-
-        document.addEventListener('mouseup', function() {
-            const pointer = document.querySelector('.pointer');
-            pointer.style.width = '40px'; /* Reset to the original size */
-            pointer.style.height = '40px';
-        });
-    </script>
 </body>
 </html>
 

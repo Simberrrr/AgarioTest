@@ -20,10 +20,26 @@ function createRandomCircle() {
     circle.style.left = x + "px";
     circle.style.top = y + "px";
 
+    circle.addEventListener('mouseenter', function() {
+        const pointer = document.querySelector('.pointer');
+        pointer.style.width = '80px'; /* Increase the size */
+        pointer.style.height = '80px';
+    });
+
+    circle.addEventListener('mouseleave', function() {
+        circle.remove(); /* Remove the circle from the DOM */
+    });
+
     document.body.appendChild(circle);
 }
 
-const numberOfCircles = 50; // Change this value to create more or fewer circles
+const numberOfCircles = 20; // Reduced the number of circles
 for (let i = 0; i < numberOfCircles; i++) {
     createRandomCircle();
 }
+
+document.addEventListener('mousemove', function(e) {
+    const pointer = document.querySelector('.pointer');
+    pointer.style.left = e.pageX + 'px';
+    pointer.style.top = e.pageY + 'px';
+});
