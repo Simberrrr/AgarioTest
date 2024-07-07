@@ -10,8 +10,6 @@ body{
 
 .pointer{
     position: absolute; 
-    top: 50%;
-    left: 50%;
     width: 40px;
     height: 40px;
     background: #fff;
@@ -20,7 +18,7 @@ body{
     pointer-events: none;
     box-sizing: border-box;
     z-index: 2; /* Ensure the pointer is on top of the other circles */
-    
+    transition: width 0.2s, height 0.2s; /* Smooth transition for resizing */
     
 }
 

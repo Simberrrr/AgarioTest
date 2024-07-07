@@ -19,21 +19,19 @@ function createRandomCircle() {
     const y = getRandomInt(0, window.innerHeight - size);
     circle.style.left = x + "px";
     circle.style.top = y + "px";
-
+    
     circle.addEventListener('mouseenter', function() {
         const pointer = document.querySelector('.pointer');
-        pointer.style.width = '80px'; /* Increase the size */
-        pointer.style.height = '80px';
+        const currentSize = parseInt(window.getComputedStyle(pointer).width);
+        const newSize = currentSize + 10; // Increase the size by 10px each time
+        pointer.style.width = newSize + 'px';
+        pointer.style.height = newSize + 'px';
+        circle.remove(); // Remove the circle from the DOM
     });
-
-    circle.addEventListener('mouseleave', function() {
-        circle.remove(); /* Remove the circle from the DOM */
-    });
-
     document.body.appendChild(circle);
 }
 
-const numberOfCircles = 20; // Reduced the number of circles
+const numberOfCircles = 50; // Change this value to create more or fewer circles
 for (let i = 0; i < numberOfCircles; i++) {
     createRandomCircle();
 }
@@ -43,3 +41,4 @@ document.addEventListener('mousemove', function(e) {
     pointer.style.left = e.pageX + 'px';
     pointer.style.top = e.pageY + 'px';
 });
+
