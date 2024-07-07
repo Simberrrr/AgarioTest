@@ -7,18 +7,38 @@
 </head>
 <body>
     <div class="pointer"></div>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script type="text/javascript">
-        $(document).mousemove(function(e){  
-            $(".pointer").css({
-                top: e.pageY,
-                left: e.pageX
-            });
-        });  
-        
-    </script>
+
     <div class="circle"></div>
     <script src="index.js"></script>
+    <script type="text/javascript">
+        let count = 0;
+        let btn = document.getElementById("btn");
+        let disp = document.getElementById("display");
+         
+        btn.onclick = function () {
+                    count++;
+        disp.innerHTML = count;
+        }
+    </script>
+    <script>
+        document.addEventListener('mousemove', function(e) {
+            const pointer = document.querySelector('.pointer');
+            pointer.style.left = e.pageX + 'px';
+            pointer.style.top = e.pageY + 'px';
+        });
+
+        document.addEventListener('mousedown', function() {
+            const pointer = document.querySelector('.pointer');
+            pointer.style.width = '80px'; /* Increase the size */
+            pointer.style.height = '80px';
+        });
+
+        document.addEventListener('mouseup', function() {
+            const pointer = document.querySelector('.pointer');
+            pointer.style.width = '40px'; /* Reset to the original size */
+            pointer.style.height = '40px';
+        });
+    </script>
 </body>
 </html>
 
